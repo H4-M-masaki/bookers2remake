@@ -1,4 +1,7 @@
 
+<%= render 'user', user: @user %>
+
+
 <% @users.each do |user| %>
   <div>
     <%= image_tag user.get_profile_image("50x50") %>
