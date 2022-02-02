@@ -2,6 +2,8 @@
 <%= render 'user', user: @user %>
 
 
+<%= render 'books/newbook', book: @book %>
+
 <% @users.each do |user| %>
   <div>
     <%= image_tag user.get_profile_image("50x50") %>

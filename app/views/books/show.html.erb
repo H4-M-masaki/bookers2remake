@@ -1,10 +1,38 @@
 
-<div>
-  <%= image_tag @book.get_image("50x50") %>
-  <p><%= link_to @user.name, user_path(@user.id) %></p>
-  <p><%= link_to @book.title, book_path(@book.id) %></p>
-  <p><%= @book.body %></p>
-   <% if @book.user == current_user %>
-    <%= link_to "削除", book_path(@book), method: :delete %>
-  <% end %>
-</div>
+<main>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-3">
+      <%= render 'users/user', user: @user %>
+      <%= render 'newbook', book: @book %>
+     <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+       <table class="table">
+        <tbody>
+         <tr>
+          <td>
+           <%= image_tag @book.get_image("50x50") %>
+           <p><%= link_to @user.name, user_path(@user.id) %></p>
+          </td>
+          <td>
+           <p><%= link_to @book.title, book_path(@book.id) %></p>
+          </td>
+          <td>
+           <p><%= @book.body %></p>
+          </td>
+          <% if @book.user == current_user %>
+          <td>
+           <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success" %>
+          </td>
+          <td>
+           <%= link_to "Destroy", book_path(@book), class: "btn btn-sm btn-danger", method: :delete %>
+          </td>
+         </tr>
+       </tbody>
+      </table>
+     <% end %>
+    </div>
+   </div>
+  </div>
+ </div>
+</main>
