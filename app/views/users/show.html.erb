@@ -1,16 +1,19 @@
-
-<%= render 'user', user: @user %>
-
-<%= render 'books/newbook', book: @book %>
-
-<!-- ユーザーの投稿一覧 -->
-
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image("50x50") %>
-  <% end %>
-  <p>Title：<%= link_to book.title, book_path(book.id) %> </p>
-  <p>Opinion：<%= book.body %></p>
-</div>
-<% end %>
+<main>
+  <div class="container px-5 px-sm-0">
+    <%= render 'user', user: @user %>
+    
+    <%= render 'books/newbook', book: @book %>
+    
+    <!-- ユーザーの投稿一覧 -->
+    
+    <% @books.each do |book| %>
+    <div>
+      <%= link_to book_path(book.id) do %>
+        <%= image_tag book.get_image("50x50") %>
+      <% end %>
+      <p>Title：<%= link_to book.title, book_path(book.id) %> </p>
+      <p>Opinion：<%= book.body %></p>
+    </div>
+    <% end %>
+  </div>
+</main>
