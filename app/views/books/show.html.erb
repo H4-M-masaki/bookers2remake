@@ -1,11 +1,12 @@
 
 <main>
+ <p id="notice"></p>
  <div class="container">
   <div class="row">
    <div class="col-md-3">
-      <%= render 'users/user', user: @user %>
-      <%= render 'newbook', book: @book %>
-     <div class="col-md-8 offset-md-1">
+    <%= render partial: "books/userinfo", locals: { user: @user, book: @book } %>
+   </div>
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
        <table class="table">
         <tbody>
@@ -32,7 +33,15 @@
       </table>
      <% end %>
     </div>
-   </div>
   </div>
  </div>
 </main>
+ 
+ 
+
+ 
+ 
+     
+
+  
+ 
