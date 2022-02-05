@@ -17,15 +17,11 @@
             </thead>
             <% @users.each do |user| %>
             <tbody>
-              
               <tr>
-                
                 <td><%= image_tag user.get_profile_image("50x50") %></td>
                 <td><p><%= user.name %></p></td>
                 <td><%= link_to 'show', user_path(user.id) %></td>
-                
               </tr>
-              
             </tbody>
             <% end %>
           </table>
