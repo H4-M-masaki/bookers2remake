@@ -14,8 +14,7 @@ class UsersController < ApplicationController
     @users = User.all
     @book = current_user
   end
-  
-  
+
   
    def update
     @user = User.find(params[:id])
