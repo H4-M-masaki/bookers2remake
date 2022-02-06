@@ -1,6 +1,24 @@
 <main>
-  <p id="notice"></p>
+  <p id="notice">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+  </p>
     <div class="container px-5 px-sm-0">
+      
+       <div class="error_explanation">
+       <% if @book.errors.any? %>
+         <h3><%= @book.errors.count %>errors prohibited this obj from being saved:</h3>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+      
+      
+      
       <div class="row">
       <div class="col-md-3">
         <%= render partial: "books/userinfo", locals: { user: @user, book: @book } %>
@@ -21,7 +39,7 @@
             <tr>
               <td>
                 <%= link_to book_path(book.id), class: "attachment user profile_image fallback" do %>
-                  <%= image_tag book.get_image("50x50") %>
+                  <%= image_tag @user.get_profile_image("40x40") %>
                 <% end %>
               </td>
               <td>

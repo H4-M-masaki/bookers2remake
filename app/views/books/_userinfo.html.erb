@@ -1,7 +1,8 @@
+     
 
    <h2>User info</h2>
    
-      <%= image_tag user.get_profile_image("50x50"), class: "attachment user profile_image fallback"  %>
+      <%= image_tag user.get_profile_image("40x40"), class: "attachment user profile_image fallback"  %>
       
       <table class="table">
         <tbody>
@@ -23,16 +24,6 @@
       <% end %>
       <% end %>
   
-  
-      <% if book.errors.any? %>
-          <%= book.errors.count %>件のエラーが発生しました
-          <ul>
-            <% book.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        <% end %>
-        
       <h2 class="mt-3">New book</h2>
       <%= form_with model: book, local:true do |f| %>
       <div class="form-group">

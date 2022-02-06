@@ -1,5 +1,9 @@
 <main>
-  <p id="notice"></p>
+  <p id="notice">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+  </p>
   <div class="container px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3">
@@ -18,7 +22,7 @@
             <% @users.each do |user| %>
             <tbody>
               <tr>
-                <td><%= image_tag user.get_profile_image("50x50") %></td>
+                <td><%= image_tag user.get_profile_image("40x40") %></td>
                 <td><p><%= user.name %></p></td>
                 <td><%= link_to 'show', user_path(user.id) %></td>
               </tr>
