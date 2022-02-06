@@ -16,18 +16,18 @@
           <tbody>
            <tr>
             <td>
-             <%= image_tag @user.get_profile_image("40x40"), class: "attachment user profile_image" %>
-             <p><%= link_to @user.name, user_path(@user.id) %></p>
+             <%= image_tag @user.get_profile_image('40x40'), class: "attachment user profile_image" %><br>
+             <%= link_to @user.name, user_path(@user) %>
             </td>
             <td>
-             <p><%= link_to @books.title, book_path(@books.id) %></p>
+             <%= link_to @books.title, book_path(@books.id) %>
             </td>
             <td>
-             <p><%= @books.body %></p>
+             <%= @books.body %>
             </td>
             <% if @books.user == current_user %>
             <td>
-             <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-success" %>
+             <%= link_to "Edit", edit_book_path(@books.id), class: "btn btn-sm btn-success" %>
             </td>
             <td>
              <%= link_to "Destroy", book_path(@books), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか?" %>

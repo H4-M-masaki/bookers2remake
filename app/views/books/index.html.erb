@@ -38,8 +38,8 @@
            <% @books.each do |book| %>
             <tr>
               <td>
-                <%= link_to book_path(book.id), class: "attachment user profile_image fallback" do %>
-                  <%= image_tag @user.get_profile_image("40x40") %>
+                <%= link_to user_path(@user.id), class: "attachment user profile_image fallback" do %>
+                  <%= image_tag book.user.get_profile_image('40x40') %>
                 <% end %>
               </td>
               <td>
